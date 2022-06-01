@@ -41,7 +41,7 @@ class StatsFCP(StatsPluginInterface):
     @property
     def measurements(self) -> Tuple[str, ...]:
         _measurements = [
-            f"{b}_pc_{p}" for b, p in product(["pv", "bs", "npv"], ["10", "50", "90"])
+            f"{b}_pc_{p}" for b, p in product(["pv", "bs", "npv", "ue"], ["10", "50", "90"])
         ]
         _measurements.append("qa")
         if self.count_valid:
