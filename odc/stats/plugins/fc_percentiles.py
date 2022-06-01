@@ -27,7 +27,7 @@ class StatsFCP(StatsPluginInterface):
         self,
         max_sum_limit: Optional[int] = None,
         clip_range: Optional[Tuple] = None,
-        ue_threshold: Optional[int] = None,
+        #ue_threshold: Optional[int] = None,
         count_valid: Optional[bool] = False,
         **kwargs,
     ):
@@ -35,7 +35,7 @@ class StatsFCP(StatsPluginInterface):
 
         self.max_sum_limit = max_sum_limit
         self.clip_range = clip_range
-        self.ue_threshold = ue_threshold
+        #self.ue_threshold = ue_threshold
         self.count_valid = count_valid
 
     @property
@@ -69,11 +69,11 @@ class StatsFCP(StatsPluginInterface):
         valid = dry
 
         # Pick out the pixels that have an unmixing error of less than the threshold
-        if self.ue_threshold is not None:
+        #if self.ue_threshold is not None:
             # No QA
-            unmixing_error_lt_30 = xx.ue < self.ue_threshold
-            valid = valid & unmixing_error_lt_30
-        xx = xx.drop_vars(["ue"])
+            #unmixing_error_lt_30 = xx.ue < self.ue_threshold
+            #valid = valid & unmixing_error_lt_30
+        #xx = xx.drop_vars(["ue"])
 
         # If there's a sum limit or clip range, implement these
         if self.max_sum_limit is not None or self.clip_range is not None:
