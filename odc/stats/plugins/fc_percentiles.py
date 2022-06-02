@@ -31,7 +31,7 @@ class StatsFCP(StatsPluginInterface):
         count_valid: Optional[bool] = False,
         **kwargs,
     ):
-        super().__init__(input_bands=["water", "pv", "bs", "npv", "ue"], **kwargs)
+        super().__init__(input_bands=["water", "ue"], **kwargs)
 
         self.max_sum_limit = max_sum_limit
         self.clip_range = clip_range
