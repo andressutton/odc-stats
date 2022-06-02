@@ -130,7 +130,7 @@ class StatsFCP(StatsPluginInterface):
         valid = xx["valid"]
         xx = xx.drop_vars(["wet", "valid"])
 
-        yy = xr_quantile_bands(xx, [0.1, 0.5, 0.9], nodata=NODATA)
+        yy = xr_quantile_bands(xx, [0.5], nodata=NODATA)
         is_ever_wet = _or_fuser(wet).squeeze(wet.dims[0], drop=True)
 
         band, *bands = yy.data_vars.keys()
